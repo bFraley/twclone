@@ -1,0 +1,72 @@
+
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        {% block title %}
+            T W A P P - Twitter Clone with Django
+        {% endblock title %}
+    </title>
+
+    <!-- Per BS Mobile Viewport recomendation -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300" rel="stylesheet">
+
+    <!-- Blood Bank's Style Rules -->
+    <link rel="stylesheet" type="text/css" href="{% static 'donors/styles.css' %}" />
+</head>
+<body>
+    <div class="container-fluid">
+        <header>
+            <nav class="navbar navbar-inverse navbar-fixed-top">
+              <div class="container-fluid topnav">
+                <div class="navbar-header">
+                    <a href="{% url 'twapp:index' %}" class="navbar-brand">
+                        Home
+                    </a>
+                </div>
+              </div>
+            </nav>
+
+
+            <div class="jumbotron">
+                <h1>T W A P P</h1> 
+                <p>twitter clone project</p>
+                <p><a href="#" class="btn btn-success btn-lg">Sign Up!</a></p>
+            </div>
+        </header>
+
+    
+
+        {% block content %}
+
+        {% endblock %}
+
+    </div> <!--  End div class container-fluid -->
+
+    <footer class="page-footer">
+        <div class="container-fluid">
+            <p>Twitter Clone Prject | &copy; 2016 Brett Fraley</p>
+        </div>
+    </footer>
+
+    <!-- Jquery / Bootstrap JS -->
+    <script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+    <!-- JS For this project -->
+
+
+</body>
+</html>
