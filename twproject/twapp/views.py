@@ -18,23 +18,50 @@ def index(request):
     return render(request, 'twapp/index.html')
 
 # Member data views
-def  member_list_view(request):
-    model = Member
+def member_list(request):
+    members = Member.objects.all()    # ? annotate(tweet_count=Count('tweet')) ?
 
+    """
+    breadcrumbs = (
+        ("Members"),
+    )
+    """
 
-def member_detail_view(request):
-    model = Member
+    context = {
+        "members": members,
+    }
 
+    return render(request, "members/member_list.html", context)
 
-class MemberCreate(CreateView):
-    model = Member
-    fields = ('username', 'email')
-    template_name = "twapp/index.html"
+def member_detail(request, id):
+    member = get_object_or_404(Member, pk=id)
+    # tweets = member.tweet_set.annotate(tweet_count=Count('tweet')).all()
+        
+    context = {
+        "member": member,
+        # "tweets": tweet,
+    }
+
+    return render(request, "members/member_detail.html", context)
+
+# TODO member_new(request):
 
 # Tweet data views
-class TweetList(ListView):
-    model = Tweet
+def tweet_list(request):
+    tweets = Tweet.objects.all()
+    
+    context = {
+        "tweets": tweets,
+    }
 
-class TweetDetail(DetailView):
-    model = Tweet
+    return render(request, "tweet_list.html", context)
 
+
+def tweet_detail(request, id):
+    tweet = get_object_or_404(Tweet, pk=id)
+
+    context = {
+        "tweet": tweet
+    }
+
+    return (request, "tweet_detail.html", context)

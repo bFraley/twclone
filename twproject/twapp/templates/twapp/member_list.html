@@ -1,13 +1,10 @@
+<!-- twapp/templates/twapp/member_list.html -->
 
+{% extends "base.html" %}
     
-<div>
-{% for member in object_list %}
-    {{ member.username }}
-    {{ member.email }}
-{% endfor %}
+<div class="main-content">
+    {% for member in object_list %}
+        {{ member.username }}
+        {{ member.email }}
+    {% endfor %}
 </div>
-
-
-
-
-

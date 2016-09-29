@@ -3,8 +3,13 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    url(r'^$', views.index, name='index'),
-    url(r'^member-list/$', views.MemberList.as_view(), name="member_list"),
-    url(r'^(?P<pk>\d+)/member-detail/$', views.MemberDetail.as_view(), name="member_detail"),
 
+    # Member URL View Routes
+    url(r'^$', views.index, name='index'),
+    url(r'^$', views.member_list, name="member_list"),
+    url(r'^(?P<pk>\d+)/$', views.member_detail, name="member_detail"),
+
+    # Tweet URL View Routes
+    url(r'^$', views.tweet_list, name='tweet_list'),
+    url(r'^(?P<id>\d+)/$', views.tweet_detail, name='tweet_detail'),
 ]
