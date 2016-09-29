@@ -19,6 +19,9 @@ class Member(models.Model):
     username = models.CharField(max_length=50)
     email = models.CharField(max_length=50)
 
+    class Meta:
+        ordering = ['username']
+
     def __str__(self):
         return '{} {}'.format(self.username, self.email)
 

@@ -1,17 +1,12 @@
 <!-- twapp/templates/twapp/member_list.html -->
-<p>Member List</p>
+
 {% extends "base.html" %}
-{% load staticfiles %}
 
 {% block content %}
 
-
-
-
 <div class="main-content">
-    {% for member in object_list %}
-        {{ member.username }}
-        {{ member.email }}
-    {% endfor %}
+
+<h1>Member List</h1>
+
 </div>
 {% endblock content %}

@@ -31,7 +31,7 @@ def member_list(request):
         "members": members
     }
 
-    return render(request, "members/member_list.html", context)
+    return render(request, "twapp/member_list.html", context)
 
 def member_detail(request, id):
     member = get_object_or_404(Member, pk=id)
@@ -42,7 +42,7 @@ def member_detail(request, id):
         # "tweets": tweet,
     }
 
-    return render(request, "members/member_detail.html", context)
+    return render(request, "twapp/member_detail.html", context)
 
 # TODO member_new(request):
 
@@ -54,7 +54,7 @@ def tweet_list(request):
         "tweets": tweets,
     }
 
-    return render(request, "tweet_list.html", context)
+    return render(request, "twapp/tweet_list.html", context)
 
 
 def tweet_detail(request, id):
@@ -64,5 +64,5 @@ def tweet_detail(request, id):
         "tweet": tweet
     }
 
-    return render(request, "tweet_detail.html", context)
+    return render(request, "twapp/tweet_detail.html", context)
 
