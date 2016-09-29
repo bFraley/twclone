@@ -27,7 +27,7 @@ class Member(models.Model):
 
 
 class Tweet(models.Model):
-    memb = models.ForeignKey('Member')
+    memb = models.ForeignKey('Member', null=True)
     msg = models.TextField(max_length=140)
 
     # TODO
@@ -39,4 +39,3 @@ class Tweet(models.Model):
     
     def get_absolute_url(self):
         return reverse('members:member_detail', args=[self.pk])
-        
