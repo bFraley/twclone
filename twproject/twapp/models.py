@@ -3,11 +3,17 @@ from django.core.urlresolvers import reverse
 
 # Define Tag, Tweet, and Member data models.
 
+# TAGS ARE A BONUS REQUIREMENT
+# DON'T DO UNTIL OTHERS ARE DONE
+"""
 class Tag(models.Model):
     text = models.CharField(max_length=50, null=True)
     
+    # NOTE: Here should I just return self.txt ?
+    # ******************************************
     def __str__(self):
         return "{}".format(self.text)
+"""
 
 class Member(models.Model):
     username = models.CharField(max_length=50)
@@ -17,17 +23,20 @@ class Member(models.Model):
         return '{} {}'.format(self.username, self.email)
 
     def get_absolute_url(self):
-        return reverse('twapp:member_list', kwargs={'pk': self.pk})
+        return reverse('members:member_detail', kwargs={'id': self.pk})
 
 
 class Tweet(models.Model):
-    mem = models.ForeignKey('Member')
+    memb = models.ForeignKey('Member')
     msg = models.TextField(max_length=140)
-    date = " date "
-    tags = models.ForeignKey('Tag')
+
+    # TODO
+    # date = " date "
+    # tags = models.ForeignKey('Tag')
 
     def __str__(self):
-        return '{}    {}    {}'.format(self.msg, self.date, self.tags)
-
-
-
+        return '{}    {}'.format(self.memb, self.msg)
+    
+    def get_absolute_url(self):
+        return reverse('members:member_detail', args=[self.pk])
+        
