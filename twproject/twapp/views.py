@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.http import HttpResponse
 
 # Import the music app models.
-from .models import Member, Tweet, Tag
+from .models import Member, Tweet
 
 # ***************************************
 # TODO
@@ -28,7 +28,7 @@ def member_list(request):
     """
 
     context = {
-        "members": members,
+        "members": members
     }
 
     return render(request, "members/member_list.html", context)
@@ -38,7 +38,7 @@ def member_detail(request, id):
     # tweets = member.tweet_set.annotate(tweet_count=Count('tweet')).all()
         
     context = {
-        "member": member,
+        "member": member
         # "tweets": tweet,
     }
 
@@ -64,4 +64,5 @@ def tweet_detail(request, id):
         "tweet": tweet
     }
 
-    return (request, "tweet_detail.html", context)
+    return render(request, "tweet_detail.html", context)
+
