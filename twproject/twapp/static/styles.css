@@ -67,6 +67,37 @@ header h1 {
     display:inline-block;
 }
 
-.right-nav {
-    
+.panel {
+    width:75%;
+    margin:20px auto;
+    border-bottom:solid 2px #999;
 }
+
+.panel-body button {
+    float:right;
+    margin-right:25px;
+}
+
+.input-group {
+    margin:20px auto;
+}
+
+.input-group-addon {
+    min-width:125px;
+}
+
+.panel-title {
+    font-size:2em;
+}
+
+nav .navbar-nav navbar-right ul li{
+    float:right;
+}
+
+
+
+
+
+
+
+

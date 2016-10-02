@@ -27,7 +27,7 @@
 <body>
     <div class="container-fluid">
         <header>
-            <nav class="navbar navbar-inverse navbar-fixed-top">
+            <nav class="navbar navbar-fixed-top">
               <div class="container-fluid topnav">
                 <div class="navbar-header">
 
@@ -42,16 +42,11 @@
               </div>
             </nav>
 
+        {% block jumbo %}
 
-            <div class="jumbotron">
-                <h1>T W A P P</h1> 
-                <p>twitter clone project</p>
-                <p><a href="#" class="btn btn-success btn-lg">Sign Up!</a></p>
-            </div>
+        {% endblock %}
         </header>
-
-    
-
+        
         {% block content %}
 
         {% endblock %}

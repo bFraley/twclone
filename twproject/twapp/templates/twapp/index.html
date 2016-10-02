@@ -1,24 +1,15 @@
 {% extends "twapp/base.html" %}
 
+{% block jumbo %}
+    <div class="jumbotron">
+        <h1>T W A P P</h1> 
+        <p>twitter clone project</p>
+        <p><a href="#" class="btn btn-success btn-lg">Sign Up!</a></p>
+    </div>
+{% endblock jumbo %}
+
+
 {% block content %}
 
-<div class="main-content">
-    <h1>HOME</h1>
-    <ul>
-        <li>Is user logged in?</li>
-        <li>Sign Up?</li>
-        <li>Log in?</li>
-        <li>If logged in?</li>
-        <li>Show Main Feed and Post New Tweet above</li>
-    </ul>
-
-    
-    <a href="{% url 'twapp:member_list' %}">Users</a>
-    <a href="{% url 'twapp:tweet_list' %}">See Tweets</a>
-    <a href="{% url 'twapp:posting_form' %}">New Post</a>
-    
-</div>
 
 {% endblock content %}
-
- <a href="{% url 'bookcases:bookcase_list' %}">Browse Bookcases</a>
