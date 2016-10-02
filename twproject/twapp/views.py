@@ -27,15 +27,6 @@ def member_list(request):
 
     return render(request, "twapp/member_list.html", context)
 
-def member_detail(request, id):
-    member = get_object_or_404(Member, pk=id)
-    # tweets = member.tweet_set.annotate(tweet_count=Count('tweet')).all()
-        
-    context = {
-        "member": member
-    }
-
-    return render(request, "twapp/member_detail.html", context)
 
 # TODO member_new(request):
 
@@ -48,16 +39,6 @@ def tweet_list(request):
     }
 
     return render(request, "twapp/tweet_list.html", context)
-
-
-def tweet_detail(request, id):
-    tweet = get_object_or_404(Tweet, pk=id)
-
-    context = {
-        "tweet": tweet
-    }
-
-    return render(request, "twapp/tweet_detail.html", context)
 
 
 def signup_form(request):

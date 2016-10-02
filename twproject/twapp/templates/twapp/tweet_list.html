@@ -4,10 +4,20 @@
 
 {% block content %}
 <div class="main-content">
-    {% for tweet in tweets %}
-        {{ tweet.msg }}
-        {{ tweet.memb }}
-    {% endfor %}
-</div>
+    <h1>All Posts</h1>
 
-{% endblock %}
+  {% for tweet in tweets %}
+  <div class="panel panel-info">
+    <!-- Default panel contents -->
+    <div class="panel-heading">{{ tweet.memb }}</div>
+
+    <div class="panel-body">
+        <p>{{tweet.msg}}</p>
+    </div>
+    
+  </div>
+  {% endfor %}
+
+</div> <!-- end main content -->
+{% endblock content %}
+

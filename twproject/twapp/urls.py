@@ -16,10 +16,10 @@ urlpatterns = [
 
     # Member URL View Routes
     url(r'^members/$', views.member_list, name="member_list"),
-    url(r'^members/(?P<pk>\d+)/$', views.member_detail, name="member_detail"),
+    #url(r'^members/(?P<id>\d+)/$', views.member_detail, name="member_detail"),
 
     # Tweet URL View Routes
 
     url(r'^tweets/$', views.tweet_list, name='tweet_list'),
-    url(r'^(?P<id>\d+)/$', views.tweet_detail, name='tweet_detail'),
+    #url(r'^(?P<id>\d+)/$', views.tweet_detail, name='tweet_detail'),
 ]
