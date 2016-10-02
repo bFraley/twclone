@@ -7,24 +7,13 @@
     <h1>Twapp Users</h1>
 
 {% for member in members %}
-<div class="panel panel-info">
-  <!-- Default panel contents -->
-  <div class="panel-heading">{{ member.username }}</div>
-  <div class="panel-body">
-    <p>{{member.email}}</p>
-    <p>Sample bio for this user.</p>
-    <p>Status: Just twappin it up!</p>
-  </div>
-
-  <!-- List group -->
-  <ul class="list-group">
-    <li class="list-group-item"></li>
-    <li class="list-group-item">Dapibus ac facilisis in</li>
-    <li class="list-group-item">Morbi leo risus</li>
-    <li class="list-group-item">Porta ac consectetur ac</li>
-    <li class="list-group-item">Vestibulum at eros</li>
-  </ul>
-</div>
+    <div class="panel panel-info">
+      <!-- Default panel contents -->
+      <div class="panel-body">
+        <img class ="profile-pic" src="../../static/images/awesome_profile.png">
+        <h2>{{member.username}}</h2>
+      </div>
+    </div>
 {% endfor %}
 
 </div> <!-- end main content -->

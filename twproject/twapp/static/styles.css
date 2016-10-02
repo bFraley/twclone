@@ -90,8 +90,14 @@ header h1 {
     font-size:2em;
 }
 
-nav .navbar-nav navbar-right ul li{
+nav .navbar-nav nav ul li{
     float:right;
+}
+
+.profile-pic {
+    width:100px;
+    float:left;
+    margin-right:50px;
 }
 
 
