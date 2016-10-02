@@ -41,6 +41,7 @@ header h1 {
     min-height: 350px;
     min-width:275px;
     background-color:#fff;
+    color:#000;
 }
 
 .main-content p {
@@ -57,4 +58,15 @@ header h1 {
     background-color:#000;
     color:#fff;
     font-size:10pt;
+}
+
+.logo {
+    background-color:#FFF;
+    padding:10px;
+    margin-left:0px 20px;
+    display:inline-block;
+}
+
+.right-nav {
+    
 }

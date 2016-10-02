@@ -1,10 +1,10 @@
 <!-- twapp/templates/twapp/tweet_list.html -->
 
-{% extends "base.html" %}
+{% extends "twapp/base.html" %}
 
 {% block content %}
 <div class="main-content">
-    {% for tweet in object_list %}
+    {% for tweet in tweets %}
         {{ tweet.msg }}
         {{ tweet.memb }}
     {% endfor %}

@@ -1,17 +1,25 @@
-# twapp/urls.py
 from django.conf.urls import url
 from . import views
 
 urlpatterns = [
 
-    # Member URL View Routes
-    
     url(r'^$', views.index, name='index'),
-    url(r'^$', views.member_list, name="member_list"),
-    url(r'^(?P<pk>\d+)/$', views.member_detail, name="member_detail"),
+
+    # Signup
+    url(r'^signup/$', views.signup_form, name="signup_form"),
+
+    # Login
+    url(r'^login/$', views.login_form, name="login_form"),
+
+    # Posting
+    url(r'^post/$', views.posting_form, name='posting_form'),
+
+    # Member URL View Routes
+    url(r'^members/$', views.member_list, name="member_list"),
+    url(r'^members/(?P<pk>\d+)/$', views.member_detail, name="member_detail"),
 
     # Tweet URL View Routes
 
-    url(r'^$', views.tweet_list, name='tweet_list'),
+    url(r'^tweets/$', views.tweet_list, name='tweet_list'),
     url(r'^(?P<id>\d+)/$', views.tweet_detail, name='tweet_detail'),
 ]

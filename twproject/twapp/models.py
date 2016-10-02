@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.urlresolvers import reverse
+import datetime
 
 # Define Tag, Tweet, and Member data models.
 
@@ -23,7 +24,7 @@ class Member(models.Model):
         ordering = ['username']
 
     def __str__(self):
-        return '{} {}'.format(self.username, self.email)
+        return self.username
 
     def get_absolute_url(self):
         return reverse('members:member_detail', kwargs={'id': self.pk})
@@ -41,4 +42,4 @@ class Tweet(models.Model):
         return '{}    {}'.format(self.memb, self.msg)
     
     def get_absolute_url(self):
-        return reverse('members:member_detail', args=[self.pk])
+        return reverse('tweet:tweet_detail', args=[self.pk])

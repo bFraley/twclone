@@ -19,16 +19,10 @@ def index(request):
 
 # Member data views
 def member_list(request):
-    members = Member.objects.all()    # ? annotate(tweet_count=Count('tweet')) ?
-
-    """
-    breadcrumbs = (
-        ("Members"),
-    )
-    """
+    members = Member.objects.all()
 
     context = {
-        "members": members
+        "members": members,
     }
 
     return render(request, "twapp/member_list.html", context)
@@ -39,7 +33,6 @@ def member_detail(request, id):
         
     context = {
         "member": member
-        # "tweets": tweet,
     }
 
     return render(request, "twapp/member_detail.html", context)
@@ -65,4 +58,14 @@ def tweet_detail(request, id):
     }
 
     return render(request, "twapp/tweet_detail.html", context)
+
+
+def signup_form(request):
+    return render(request, "twapp/signup_form.html")
+
+def login_form(request):
+    return render(request, "twapp/login_form.html")
+
+def posting_form(request):
+    return render(request, "twapp/posting_form.html")
 

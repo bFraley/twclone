@@ -12,9 +12,13 @@
         <li>Show Main Feed and Post New Tweet above</li>
     </ul>
 
-    <a href="{% url 'twapp:member_list' %}" class="navbar-brand">Members</a>
-    <a href="{% url 'twapp:tweet_list' %}" class="navbar-brand">Tweets</a>
-
+    
+    <a href="{% url 'twapp:member_list' %}">Users</a>
+    <a href="{% url 'twapp:tweet_list' %}">See Tweets</a>
+    <a href="{% url 'twapp:posting_form' %}">New Post</a>
+    
 </div>
 
 {% endblock content %}
+
+ <a href="{% url 'bookcases:bookcase_list' %}">Browse Bookcases</a>

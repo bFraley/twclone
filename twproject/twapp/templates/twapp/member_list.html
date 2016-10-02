@@ -1,12 +1,17 @@
 <!-- twapp/templates/twapp/member_list.html -->
 
-{% extends "base.html" %}
+{% extends "twapp/base.html" %}
 
 {% block content %}
-
 <div class="main-content">
-
-<h1>Member List</h1>
+    <h1>Member List</h1>
+    <ul class='striped'>
+        {% for member in members %}
+        <li>{{member.username}}</li>
+        <li>{{member.email}}</li>
+        {% endfor %}
+    </ul>
 
 </div>
 {% endblock content %}
+
