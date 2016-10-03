@@ -9,8 +9,7 @@
   {% for tweet in tweets %}
   <div class="panel panel-info">
     <!-- Default panel contents -->
-    <div class="panel-heading">{{ tweet.memb }}</div>
-
+    <div class="panel-heading">{{tweet.memb}} | {{tweet.date}}</div>
     <div class="panel-body">
         <p>{{tweet.msg}}</p>
     </div>

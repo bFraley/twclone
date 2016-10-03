@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.urlresolvers import reverse
+from django.contrib.auth.models import User
 import datetime
 
 # Define Tag, Tweet, and Member data models.
@@ -10,10 +11,8 @@ import datetime
 class Tag(models.Model):
     text = models.CharField(max_length=50, null=True)
     
-    # NOTE: Here should I just return self.txt ?
-    # ******************************************
     def __str__(self):
-        return "{}".format(self.text)
+        return self.text
 """
 
 class Member(models.Model):
@@ -33,9 +32,7 @@ class Member(models.Model):
 class Tweet(models.Model):
     memb = models.ForeignKey('Member', null=True)
     msg = models.TextField(max_length=140)
-
-    # TODO
-    # date = " date "
+    date = datetime.datetime.now()
     # tags = models.ForeignKey('Tag')
 
     def __str__(self):

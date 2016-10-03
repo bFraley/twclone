@@ -34,10 +34,19 @@
                     <a href="/"><img class="navbar-brand logo" src="../../static/images/awesome_tweet.png"></a>
 
                     <ul class="nav navbar-nav navbar-right">
+
+                        {% if request.user.is_authenticated %}
+                        <li><a href="{% url 'twapp:posting_form' %}">Create Post</a></li>
+                        <li><a href="{% url 'twapp:member_tweets' request.user.id %}">My Posts</a></li>
+                        <li><a href="{% url 'twapp:member_list' %}">Users</a></li>
+                        <li><a href="/">Logout</a></li>
+                        {% else %}
                         <li><a href="{% url 'twapp:member_list' %}">Users</a></li>
                         <li><a href="{% url 'twapp:signup_form' %}">Signup</a></li>
                         <li><a href="{% url 'twapp:login_form' %}">Login</a></li>
+                        {% endif %}
                     </ul>
+                
                 </div>
               </div>
             </nav>
