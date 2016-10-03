@@ -50,12 +50,11 @@ def signup_form(request):
     return render(request, "twapp/signup_form.html")
 
 def login_form(request):
-    return render(request, "twapp/login_form.html")
+    return render(request, "registration/login.html")
 
 @login_required
 def posting_form(request):
     
-
     if request.method == "POST":
         form = PostingForm(request.POST)
         if form.is_valid():

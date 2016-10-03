@@ -10,7 +10,11 @@ urlpatterns = [
     url(r'^signup/$', views.signup_form, name="signup_form"),
 
     # Login
-    url(r'^login/$', views.login_form, name="login_form"),
+    url(r'^login/$', 'django.contrib.auth.views.login', 
+        {'authentication_form': LoginForm}, name='login'),
+
+    # Logout
+    url(r'^logout/$', 'django.contrib.auth.views.logout', views.index, name='index'),
 
     # Posting
     url(r'^post/$', views.posting_form, name='posting_form'),
@@ -24,15 +28,6 @@ urlpatterns = [
     url(r'^tweets/$', views.tweet_list, name='tweet_list'),
     #url(r'^(?P<id>\d+)/$', views.tweet_detail, name='tweet_detail'),
 
-    url(r'^login/$', 'django.contrib.auth.views.login', 
-        {'authentication_form': LoginForm},
-        name='login'),
-
-    url(r'^logout/$', 'django.contrib.auth.views.logout', views.index, name='index'),
-    url(r'^register/$', views.register, name='register'),
-
-
-
-
+    
 
 ]
