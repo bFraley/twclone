@@ -1,0 +1,21 @@
+<!-- twapp/templates/twapp/member_tweets.html -->
+
+{% extends "twapp/base.html" %}
+
+{% block content %}
+<div class="main-content">
+    <h1>{{member.username}}</h1>
+    <p>{{member.email}}</p>
+
+    {% for tweet in tweets %}
+    <div class="panel panel-info">
+        <!-- Default panel contents -->
+        <div class="panel-body">
+            {{tweet.msg}}
+        </div>
+    </div>
+    {% endfor %}
+
+</div> <!-- end main content -->
+{% endblock content %}
+

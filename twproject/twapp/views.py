@@ -27,8 +27,17 @@ def member_list(request):
 
     return render(request, "twapp/member_list.html", context)
 
+def member_tweets(request, id):
+    member = Member.objects.filter(id=id)
+    tweets = Tweet.objects.filter(memb=id)
 
-# TODO member_new(request):
+    context = {
+        "member":member,
+        "tweets":tweets
+    }
+    
+    return render(request, 'twapp/member_tweets.html', context)
+
 
 # Tweet data views
 def tweet_list(request):

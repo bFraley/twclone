@@ -16,7 +16,7 @@ urlpatterns = [
 
     # Member URL View Routes
     url(r'^members/$', views.member_list, name="member_list"),
-    #url(r'^members/(?P<id>\d+)/$', views.member_detail, name="member_detail"),
+    url(r'^member_tweets/([0-9]+)/$', views.member_tweets, name="member_tweets"),
 
     # Tweet URL View Routes
 
