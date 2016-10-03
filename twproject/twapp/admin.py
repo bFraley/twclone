@@ -8,8 +8,7 @@ class TweetAdmin(admin.ModelAdmin):
 
 
 class MemberAdmin(admin.ModelAdmin):
-    #search_fields = ('username', 'email')
-    list_display = ('username', 'email', ) # get_tweets
+    list_display = ('account', )
 
 
 admin.site.register(Tweet, TweetAdmin)

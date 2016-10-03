@@ -16,17 +16,14 @@ class Tag(models.Model):
 """
 
 class Member(models.Model):
-    username = models.CharField(max_length=50)
-    email = models.EmailField()
-
-    class Meta:
-        ordering = ['username']
+    account = models.OneToOneField(User)
 
     def __str__(self):
-        return self.username
+        return self.account.username
 
     def get_absolute_url(self):
         return reverse('members:member_detail', kwargs={'id': self.pk})
+
 
 
 class Tweet(models.Model):
