@@ -1,5 +1,6 @@
 from django.conf.urls import url
 from . import views
+from .forms import LoginForm
 
 urlpatterns = [
 
@@ -22,4 +23,16 @@ urlpatterns = [
 
     url(r'^tweets/$', views.tweet_list, name='tweet_list'),
     #url(r'^(?P<id>\d+)/$', views.tweet_detail, name='tweet_detail'),
+
+    url(r'^login/$', 'django.contrib.auth.views.login', 
+        {'authentication_form': LoginForm},
+        name='login'),
+
+    url(r'^logout/$', 'django.contrib.auth.views.logout', views.index, name='index'),
+    url(r'^register/$', views.register, name='register'),
+
+
+
+
+
 ]

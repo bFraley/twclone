@@ -1,18 +1,14 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.db.models import Count
 from django.core.urlresolvers import reverse
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.models import User
 from django.contrib import messages
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
+from .forms import PostingForm, LoginForm, UserRegistrationForm, MemberForm
 
 # Import the music app models.
 from .models import Member, Tweet
-
-# ***************************************
-# TODO
-# Import Forms
-# from .forms import MemberSignupForm
-# from .forms import MemberLoginForm
-# from .forms import TweetEntryForm
 
 def index(request):
     return render(request, 'twapp/index.html')
@@ -56,6 +52,48 @@ def signup_form(request):
 def login_form(request):
     return render(request, "twapp/login_form.html")
 
+@login_required
 def posting_form(request):
-    return render(request, "twapp/posting_form.html")
+    
 
+    if request.method == "POST":
+        form = PostingForm(request.POST)
+        if form.is_valid():
+            new_message = form.save(commit=False)
+            new_message.user_id = request.user.id
+            new_message.save()
+            messages.success(request, 'Message Posted!')
+            return redirect('/')
+    else:
+        form=PostingForm()
+
+    context = {
+        "form": form,
+    }
+
+    return render(request, "twapp/posting_form.html", context)
+
+
+def register(request):
+    if request.method== "POST":
+        form = UserRegistrationForm(request.POST)
+
+        if form.is_valid():
+            new_user = form.save(commit=False)
+            new_user.set_password(form.cleaned_data['password'])
+            new_user.save()
+
+            new_user = authenticate(username=form.cleaned_data['username'],
+                password=form.cleaned_data['password'],)
+
+            login(request, new_user)
+            messages.success(request, "User Created!")
+
+            return redirect('twapp:member_tweets')
+    else:
+        form = UserRegistrationForm()
+
+    context = {
+        "form": form
+    }
+    return render(request, "twapp/signup_form.html", context)
