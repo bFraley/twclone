@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.urlresolvers import reverse
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.http import HttpResponse
@@ -46,11 +46,13 @@ def tweet_list(request):
     return render(request, "twapp/tweet_list.html", context)
 
 
-def signup_form(request):
-    return render(request, "twapp/signup_form.html")
-
 def login_form(request):
     return render(request, "registration/login.html")
+
+
+def logout_user(request):
+    logout(request)
+    return redirect('index.html')
 
 @login_required
 def posting_form(request):
@@ -58,11 +60,11 @@ def posting_form(request):
     if request.method == "POST":
         form = PostingForm(request.POST)
         if form.is_valid():
-            new_message = form.save(commit=False)
-            new_message.user_id = request.user.id
-            new_message.save()
-            messages.success(request, 'Message Posted!')
-            return redirect('/')
+            posting = form
+            posting.memb = request.user.id
+            posting.save()
+
+            return redirect('twapp/member_tweets.html')
     else:
         form=PostingForm()
 
@@ -70,7 +72,7 @@ def posting_form(request):
         "form": form,
     }
 
-    return render(request, "twapp/posting_form.html", context)
+    return render(request, 'twapp/posting_form.html', context)
 
 
 def register(request):
@@ -78,10 +80,12 @@ def register(request):
         form = UserRegistrationForm(request.POST)
 
         if form.is_valid():
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password']
-            user.set_password(password)
-            user.save()
+            new_account = form.save(commit=False)
+            new_account.set_password(form.cleaned_data["password"])
+            new_account.save()
+            member = Member()
+            member.account = new_account
+            member.save()
 
             return redirect('twapp:member_tweets')
 
@@ -92,5 +96,4 @@ def register(request):
         "form": form
     }
 
-    return render(request, "twapp/signup_form.html", context)
-    
+    return render(request, 'registration/register.html', context)

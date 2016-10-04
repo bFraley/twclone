@@ -13,5 +13,3 @@ class MemberAdmin(admin.ModelAdmin):
 
 admin.site.register(Tweet, TweetAdmin)
 admin.site.register(Member, MemberAdmin)
-
-# admin.site.register(Tag)

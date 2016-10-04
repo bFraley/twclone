@@ -17,16 +17,13 @@
 
         <form action="{% url 'twapp:member_list' %}" method="post">
         {% csrf_token %}
-            <div class="input-group input-group-lg">
-                <span class="input-group-addon" id="sizing-addon1">Username</span>
-                <input type="text" class="form-control" placeholder="" aria-describedby="sizing-addon1">
-            </div>
 
+        {% for field in form %}
             <div class="input-group input-group-lg">
-                <span class="input-group-addon" id="sizing-addon1">Password</span>
-                <input type="text" class="form-control" placeholder="" aria-describedby="sizing-addon1">
+                <span class="input-group-addon" id="sizing-addon1">{{field.label}}</span>
+                {{field}}
             </div>
-            <input type="hidden" name="next" value="{{next}}">
+        {% endfor %}
             
             <button class="btn btn-primary" type="submit">Login</button>
         </form>

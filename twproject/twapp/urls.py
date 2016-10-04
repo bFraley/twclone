@@ -7,14 +7,14 @@ urlpatterns = [
     url(r'^$', views.index, name='index'),
 
     # Signup
-    url(r'^signup/$', views.signup_form, name="signup_form"),
+    url(r'^register/$', views.register, name="register"),
 
     # Login
     url(r'^login/$', 'django.contrib.auth.views.login', 
         {'authentication_form': LoginForm}, name='login'),
 
     # Logout
-    url(r'^logout/$', 'django.contrib.auth.views.logout', views.index, name='index'),
+    url(r'^logout/$', views.logout_user, name='logout_user'),
 
     # Posting
     url(r'^post/$', views.posting_form, name='posting_form'),

@@ -1,5 +1,9 @@
 {% extends "twapp/base.html" %}
+
 {% block content %}
+
 <h2>Logged out</h2>
-<p>You have been successfully logged out. You can <a href="{% url 'login' %}">login again</a>.</p>
+
+<p>You have been successfully logged out. You can <a href="{% url 'twapp:login' %}">login again</a>.</p>
+
 {% endblock %}
