@@ -4,7 +4,7 @@ from django import forms
 from .models import Member, Tweet
 from . import views
 
-
+# Form for posting a message 'tweet'.
 class PostingForm(forms.ModelForm):
     msg = forms.CharField(max_length=140)
     
@@ -13,14 +13,11 @@ class PostingForm(forms.ModelForm):
         fields = ('msg',)
 
 
+# User Login.
 class LoginForm(AuthenticationForm):
     pass
 
-class MemberForm(forms.ModelForm):
-    class Meta:
-        model = Member
-        fields = ('account',)
-
+# User Registration.
 class UserRegistrationForm(forms.ModelForm):
     password = forms.CharField(label='Password', widget=forms.PasswordInput)
     password2 = forms.CharField(label='Repeat Password', widget=forms.PasswordInput)

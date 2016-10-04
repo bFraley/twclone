@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
-from .forms import PostingForm, LoginForm, UserRegistrationForm, MemberForm
+from .forms import PostingForm, LoginForm, UserRegistrationForm
 
 # Import the music app models.
 from .models import Member, Tweet
@@ -78,21 +78,19 @@ def register(request):
         form = UserRegistrationForm(request.POST)
 
         if form.is_valid():
-            new_user = form.save(commit=False)
-            new_user.set_password(form.cleaned_data['password'])
-            new_user.save()
-
-            new_user = authenticate(username=form.cleaned_data['username'],
-                password=form.cleaned_data['password'],)
-
-            login(request, new_user)
-            messages.success(request, "User Created!")
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            user.set_password(password)
+            user.save()
 
             return redirect('twapp:member_tweets')
+
     else:
         form = UserRegistrationForm()
 
     context = {
         "form": form
     }
+
     return render(request, "twapp/signup_form.html", context)
+    

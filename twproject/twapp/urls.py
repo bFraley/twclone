@@ -24,10 +24,6 @@ urlpatterns = [
     url(r'^member_tweets/([0-9]+)/$', views.member_tweets, name="member_tweets"),
 
     # Tweet URL View Routes
-
     url(r'^tweets/$', views.tweet_list, name='tweet_list'),
-    #url(r'^(?P<id>\d+)/$', views.tweet_detail, name='tweet_detail'),
-
-    
 
 ]
