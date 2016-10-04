@@ -15,7 +15,7 @@
         <div class="alert alert-danger">Invalid login. Try Again.</div>
         {% endif %}
 
-        <form action="{% url 'twapp:member_list' %}" method="post">
+        <form action="" method="post">
         {% csrf_token %}
 
         {% for field in form %}

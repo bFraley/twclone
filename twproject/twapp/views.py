@@ -87,7 +87,7 @@ def register(request):
             member.account = new_account
             member.save()
 
-            return redirect('twapp:member_tweets')
+            return redirect('twapp:member_tweets', member.id)
 
     else:
         form = UserRegistrationForm()

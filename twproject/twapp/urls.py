@@ -14,7 +14,9 @@ urlpatterns = [
         {'authentication_form': LoginForm}, name='login'),
 
     # Logout
-    url(r'^logout/$', views.logout_user, name='logout_user'),
+    url(r'^logout/$', 'django.contrib.auth.views.logout',
+        {'template_name': 'registration/logout.html'},
+         name='logout_user'),
 
     # Posting
     url(r'^post/$', views.posting_form, name='posting_form'),
