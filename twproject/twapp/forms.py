@@ -2,7 +2,6 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User 
 from django import forms
 from .models import Member, Tweet
-from . import views
 
 # Form for posting a message 'tweet'.
 class PostingForm(forms.ModelForm):
