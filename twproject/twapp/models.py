@@ -25,9 +25,8 @@ class Member(models.Model):
         return reverse('members:member_detail', kwargs={'id': self.pk})
 
 
-
 class Tweet(models.Model):
-    memb = models.ForeignKey('Member', null=True)
+    memb = models.ForeignKey('Member')
     msg = models.TextField(max_length=140)
     date = datetime.datetime.now()
     # tags = models.ForeignKey('Tag')

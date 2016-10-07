@@ -60,12 +60,12 @@ def posting_form(request):
     if request.method == "POST":
         form = PostingForm(request.POST)
         if form.is_valid():
-            tweet = Tweet()
-            tweet.msg = form
+            tweet = form.save(commit=False)
+            tweet.memb = request.user.member
+            #import pdb;pdb.set_trace()
             tweet.save()
-            tweet.memb.account.save()
 
-            return redirect('twapp/member_tweets.html')
+            return redirect('twapp:member_tweets', id=request.user.member.id)
     else:
         form=PostingForm()
 

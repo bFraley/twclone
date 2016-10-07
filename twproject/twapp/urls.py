@@ -23,7 +23,7 @@ urlpatterns = [
 
     # Member URL View Routes
     url(r'^members/$', views.member_list, name="member_list"),
-    url(r'^member_tweets/([0-9]+)/$', views.member_tweets, name="member_tweets"),
+    url(r'^member_tweets/(?P<id>\d+)/$', views.member_tweets, name="member_tweets"),
 
     # Tweet URL View Routes
     url(r'^tweets/$', views.tweet_list, name='tweet_list'),
