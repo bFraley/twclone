@@ -12,7 +12,7 @@
       <!-- Default panel contents -->
       <div class="panel-body">
         <img class ="profile-pic" src="{% static 'images/awesome_profile.png' %}">
-        <a href="{% url 'twapp:member_tweets' member.id%}"><h2>{{member.account.username}}</h2>
+        <a href="{% url 'twapp:member_tweets' member.id%}"><h2>{{member.account.username}}</h2></a>
       </div>
     </div>
 {% endfor %}
