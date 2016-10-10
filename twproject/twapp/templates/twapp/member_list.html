@@ -1,4 +1,5 @@
 <!-- twapp/templates/twapp/member_list.html -->
+
 {% extends "twapp/base.html" %}
 {% load staticfiles %}
 
@@ -11,10 +12,11 @@
       <!-- Default panel contents -->
       <div class="panel-body">
         <img class ="profile-pic" src="{% static 'images/awesome_profile.png' %}">
-        <h2><a href="{% url 'twapp:member_tweets' member.id%}">{{member.account.username}}</a></h2>
+        <a href="{% url 'twapp:member_tweets' member.id%}"><h2>{{member.account.username}}</h2>
       </div>
     </div>
 {% endfor %}
 
 </div> <!-- end main content -->
 {% endblock content %}
+
